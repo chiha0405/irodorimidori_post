@@ -18,35 +18,24 @@
 <meta property="og:image"
  content="https://chiha0405.github.io/irodorimidori_post/clear.png">
 
+
 <script>
-const base = "https://chiha0405.github.io/irodorimidori_post/";
-const booth = "https://iatlab.booth.pm/";
+const text =
+  "イロドリミドリの謎を解き明かした！\n\n" +
+  "#謎解き #IAT_Lab #イロドリミドリ";
 
-if (new URLSearchParams(location.search).has("share")) {
+const boothUrl = "https://iatlab.booth.pm/items/9163530";
 
-  // クリア報告用
-  const text = [
-    "イロドリミドリの謎を解き明かした！",
-    "",
-    "#謎解き #IAT_Lab #イロドリミドリ"
-  ].join("\n");
+const params = new URLSearchParams({
+  text: text,
+  url: boothUrl
+});
 
-  const params = new URLSearchParams({
-    text: text,
-    url: base
-  });
-
-  location.replace(
-    "https://x.com/intent/tweet?" + params.toString()
-  );
-
-} else {
-
-  // Xカードをクリックした人はBOOTHへ
-  location.replace(booth);
-
-}
+location.replace(
+  "https://x.com/intent/tweet?" + params.toString()
+);
 </script>
+
 </head>
 <body></body>
 </html>

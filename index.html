@@ -1,27 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>クリア報告</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>イロドリミドリ CLEAR!</title>
+
+<!-- Xカード・OGP設定 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="イロドリミドリ CLEAR!">
+<meta name="twitter:description" content="イロドリミドリの謎を解き明かした！">
+<meta name="twitter:image"
+ content="https://chiha0405.github.io/irodorimidori_post/clear.png">
+
+<meta property="og:title" content="イロドリミドリ CLEAR!">
+<meta property="og:description" content="イロドリミドリの謎を解き明かした！">
+<meta property="og:image"
+ content="https://chiha0405.github.io/irodorimidori_post/clear.png">
+
 <script>
-const text = "イロドリミドリの謎を解き明かした！" + "\n" + "https://iatlab.booth.pm/";
-const hashtags = "謎解き,IAT_Lab,イロドリミドリ";
+const base = "https://chiha0405.github.io/irodorimidori_post/";
+const booth = "https://iatlab.booth.pm/";
 
-// 画像カードのURLを自動取得
-const cardUrl = new URL("card.html", location.href).href;
+if (new URLSearchParams(location.search).has("share")) {
 
-// Xの投稿URLを生成
-const params = new URLSearchParams({
-  text: text,
-  hashtags: hashtags,
-  url: cardUrl
-});
+  // クリア報告用
+  const text = [
+    "イロドリミドリの謎を解き明かした！",
+    "",
+    "#謎解き #IAT_Lab #イロドリミドリ"
+  ].join("\n");
 
-// 即座にXへ移動
-location.replace(
-  "https://x.com/intent/tweet?" + params.toString()
-);
+  const params = new URLSearchParams({
+    text: text,
+    url: base
+  });
+
+  location.replace(
+    "https://x.com/intent/tweet?" + params.toString()
+  );
+
+} else {
+
+  // Xカードをクリックした人はBOOTHへ
+  location.replace(booth);
+
+}
 </script>
 </head>
 <body></body>
 </html>
+

@@ -1,18 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>クリア報告</title>
+<script>
+const text = "イロドリミドリの謎を解き明かした！" + "\n" + "https://iatlab.booth.pm/";
+const hashtags = "謎解き","IAT_Lab","イロドリミドリ";
 
-<title>謎解きクリア！</title>
+// 画像カードのURLを自動取得
+const cardUrl = new URL("card.html", location.href).href;
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="謎解きクリア！">
-<meta name="twitter:description" content="謎解きをクリアしました！">
-<meta name="twitter:image" content="https://USERNAME.github.io/REPO/clear.png">
+// Xの投稿URLを生成
+const params = new URLSearchParams({
+  text: text,
+  hashtags: hashtags,
+  url: cardUrl
+});
 
-<meta property="og:title" content="謎解きクリア！">
-<meta property="og:image" content="https://USERNAME.github.io/REPO/clear.png">
+// 即座にXへ移動
+location.replace(
+  "https://x.com/intent/tweet?" + params.toString()
+);
+</script>
 </head>
+<body></body>
 </html>
